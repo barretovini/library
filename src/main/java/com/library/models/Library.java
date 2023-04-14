@@ -29,4 +29,8 @@ public class Library {
                 .filter(book -> (title == null || book.getTitle().equals(title)) && (author == null || book.getAuthor().equals(author)))
                 .collect(Collectors.toList());
     }
+
+    public void removeBook(String title, String author) {
+        books.removeIf(book -> book.getTitle().equals(title) && book.getAuthor().equals(author));
+    }
 }

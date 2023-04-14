@@ -5,9 +5,20 @@ import org.junit.Test;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class SearchBooksTest {
+public class LibraryTest {
+
+    @Test
+    public void testAddBook() {
+        Library library = new Library();
+        Book book = new Book("Lord of The Rings", "J.R.R. Tolkien");
+        library.addBooks(book);
+
+        assertEquals(1, library.getBooks().size());
+        assertTrue(library.getBooks().contains(book));
+    }
 
     @Test
     public void testSearchBooks() {
@@ -33,4 +44,21 @@ public class SearchBooksTest {
         assertEquals(1, searchByTitleAndAuthor.size());
         assertTrue(searchByTitleAndAuthor.contains(book3));
     }
+
+    @Test
+    public void testRemoveBook() {
+        Library library = new Library();
+        Book book1 = new Book("The Hobbit", "J.R.R. Tolkien");
+        Book book2 = new Book("Harry Potter and the Philosopher's Stone", "J.K. Rowling");
+
+        library.addBooks(book1);
+        library.addBooks(book2);
+
+        library.removeBook("The Hobbit", "J.R.R. Tolkien");
+
+        assertEquals(1, library.getBooks().size());
+        assertFalse(library.getBooks().contains(book1));
+        assertTrue(library.getBooks().contains(book2));
+    }
+
 }
