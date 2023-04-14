@@ -9,8 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Book {
-    private String title;
-    private Author author;
-    private Publisher publisher;
+public class Author {
+    private String name;
+    private String nationality;
 }

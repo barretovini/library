@@ -24,13 +24,17 @@ public class Library {
         return books;
     }
 
-    public List<Book> searchBooks(String title, String author) {
+    public List<Book> searchBooks(String title, Author author, Publisher publisher) {
         return books.stream()
-                .filter(book -> (title == null || book.getTitle().equals(title)) && (author == null || book.getAuthor().equals(author)))
+                .filter(book -> (title == null || book.getTitle().equals(title)) &&
+                        (author == null || book.getAuthor().equals(author)) &&
+                        (publisher == null || book.getPublisher().equals(publisher)))
                 .collect(Collectors.toList());
     }
 
-    public void removeBook(String title, String author) {
-        books.removeIf(book -> book.getTitle().equals(title) && book.getAuthor().equals(author));
+    public void removeBook(String title, Author author, Publisher publisher) {
+        books.removeIf(book -> book.getTitle().equals(title) &&
+                book.getAuthor().equals(author) &&
+                book.getPublisher().equals(publisher));
     }
 }
