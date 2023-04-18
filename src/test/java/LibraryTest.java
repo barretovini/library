@@ -1,7 +1,7 @@
-import com.library.models.Author;
-import com.library.models.Book;
-import com.library.models.Library;
-import com.library.models.Publisher;
+import com.library.model.Author;
+import com.library.model.Book;
+import com.library.model.Library;
+import com.library.model.Publisher;
 import com.library.service.LibraryService;
 import org.junit.Test;
 

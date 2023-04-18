@@ -1,21 +1,25 @@
 package com.library.service;
 
-import com.library.models.Author;
-import com.library.models.Book;
-import com.library.models.Library;
-import com.library.models.Publisher;
+import com.library.model.Author;
+import com.library.model.Book;
+import com.library.model.Library;
+import com.library.model.Publisher;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-
+@Service
 public class LibraryService {
 
     private Library library;
 
+    @Autowired
     public LibraryService(Library library) {
         this.library = library;
     }
+
 
     public void addBooks(Book book) {
         this.library.getBooks().add(book);
